@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let personas = [
+            {nombre: "Boris", hobby: "correr", salario: 2000},
+            {nombre: "Luis", hobby: "cantar", salario: 1500},
+            {nombre: "Carmen", hobby: "cocinar", salario: 800},
+            {nombre: "Percy", hobby: "cantar", salario: 1100},
+            {nombre: "Rosa", hobby: "leer", salario: 3000}
+        ];
+
+        // método filter: Se encarga de filtrar una determinada cantidad de elementos en base a una condición.
+        // Retorna un nuevo arreglo con aquellos elementos que cumplen la condición
+        // Recibe un callback como parámetro (función)
+        // Ejemplo: Vamos a extraer solo aquellos elementos (personas) cuyo hobby sea cantar
+        let newList = personas.filter(function(persona) {
+            // El método filter toma como parámetro una función. Vamos a tener una referencia a cada uno de los elementos del arreglo
+            // Solo retornamos aquellas personas cuyo hobby sea cantar
+            return persona.hobby === "cantar";
+        });
+
+        // Obtenemos en un nuevo arreglo a todas las personas con salario >= 1100
+        let newList2 = personas.filter(function(persona) {
+            return persona.salario >= 1100;
+        });
+
+        // Representando la misma función anterior pero como función flecha (arrow function)
+        let newList3 = personas.filter((persona) => {
+            return persona.salario >= 1100;
+        });
+
+        // Debido a que el cuerpo de la función solo tiene una línea, no son necesarias las llaves, ni la palabra return
+        let newList4 = personas.filter((persona) => persona.salario >= 1100);
+
+        
+
+        console.log(newList);
+        console.log(newList2);
+        console.log(newList3);
+        console.log(newList4);
+
+
+    </script>
+</body>
+</html>

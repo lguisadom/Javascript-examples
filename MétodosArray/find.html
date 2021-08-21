@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let personas = [
+            {nombre: "Boris", hobby: "correr", salario: 2000},
+            {nombre: "Luis", hobby: "cantar", salario: 1500},
+            {nombre: "Carmen", hobby: "cocinar", salario: 800},
+            {nombre: "Percy", hobby: "cantar", salario: 1100},
+            {nombre: "Rosa", hobby: "leer", salario: 3000}
+        ];
+
+        // método find: Busca al primer elemento que cumple una determinada condición, y retorna a ese elemento.
+        // Cuando encuentra al primer elemento que cumple la condición ya no continua con la iteración. 
+        // Recibe como parámetro un callback (función). Dicha función recibe un parámetro con el cual se obtiene una referencia a cada elemento del arreglo
+        let persona = personas.find(function(persona) {
+            return persona.hobby === "cantar";
+        });
+
+        let persona2 = personas.find(persona => persona.hobby === "cantar");
+
+        console.log(persona);
+        console.log(persona2);
+    </script>
+</body>
+</html>

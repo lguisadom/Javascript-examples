@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let personas = [
+            {nombre: "Boris", hobby: "correr", salario: 2000},
+            {nombre: "Luis", hobby: "cantar", salario: 1500},
+            {nombre: "Carmen", hobby: "cocinar", salario: 800},
+            {nombre: "Percy", hobby: "cantar", salario: 1100},
+            {nombre: "Rosa", hobby: "leer", salario: 3000}
+        ];
+
+        // método map: retorna un nuevo arreglo en base a cada uno de los elementos del arreglo previo
+        // Recibe un parámetro: un callback (una función)
+        let newList = personas.map(function(persona) {
+            return "Hola " + persona.nombre;
+        });
+
+        console.log(newList);
+    </script>
+</body>
+</html>
