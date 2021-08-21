@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <script>
+        /* 
+            Promises
+            Recibe un parámetro: es una función anónima con dos parámetros.
+            Dicha función recibe también dos parámetros: 
+             Por convención se llaman resolve (en caso que todo es exitoso) y reject (en caso de que ocurriera algún error)
+             Estos parámetros también son funciones
+        */
+        let promise = new Promise(function(resolve, reject) {
+            let suma = 2 + 20;
+            if (suma === 8) {
+                resolve("Correcto!"); // Se ejecuta el primer parámetro, y se le pasa un parámetro
+            } else {
+                reject("Error!"); // Se ejecuta el segundo parámetro, y se le pasa un parámetro
+            }
+        });
+
+        promise.then(function(mensaje) {
+            // Método then: Se encuentra vinculado con la función resolve
+            // Se le pasa como parámetro la función con la definición del método resolve
+            console.log(mensaje);
+        }).catch(function(error) {
+            // Método catch: Se encuentra vinculado con la función reject
+            // Se le pasa como parámetro la función con la definición del método reject
+            console.log(error);
+        });
+    </script>
+</body>
+</html>

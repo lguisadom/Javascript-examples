@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <script>
+        function miPromesa() {
+            return new Promise(function(resolve, reject) {
+                let suma = 2 + 6;
+                if (suma === 8) {
+                    resolve("Correcto!"); // Se ejecuta el primer parámetro, y se le pasa un parámetro
+                } else {
+                    reject("Error!"); // Se ejecuta el segundo parámetro, y se le pasa un parámetro
+                }
+            });
+        }
+
+        miPromesa().then(function(mensaje) {
+            console.log(mensaje);
+        }).catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+</html>
