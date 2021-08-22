@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        function mostrarDatos(persona, metodo) {
+            console.log("Usando método: ", metodo);
+            console.log("Nombre: ", persona.name);
+            console.log("Fecha de creación: ", persona.created);
+            console.log("Color de pelo: ", persona.hair_color);
+            console.log("Altura: ", persona.height);
+        }
+
+        function metodoAjax() {
+            $.getJSON("https://swapi.dev/api/people/1", (response) => {
+                mostrarDatos(response, "ajax");
+            });
+        }
+
+        function metodoPromise() {
+            // Usando api fetch el cual retorna una promesa. Usando then/catch
+            fetch("https://swapi.dev/api/people/1")
+            .then(response => response.json())
+            .then(json => mostrarDatos(json, "promise"));
+        }
+
+        async function metodoPromiseAsyncAwait() {
+            // Usando async/await
+            let response = await fetch("https://swapi.dev/api/people/1");
+            let json = await response.json();
+            mostrarDatos(json, "async/await");
+            console.info(json);
+        }
+
+        metodoAjax();
+        metodoPromise();
+        metodoPromiseAsyncAwait();
+    </script>
+</body>
+</html>
