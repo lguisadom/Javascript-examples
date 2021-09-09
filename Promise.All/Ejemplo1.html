@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p1 = Promise.resolve(3);
+        let p2 = 1337;
+        let p3 = new Promise((resolve, reject) => {
+            let seconds = (new Date()).getSeconds();
+            console.log("seconds: ", seconds);
+            if (seconds % 2 == 0) {
+                console.log("resolving...");
+                setTimeout(resolve, 2500, "foo");
+            } else {
+                console.log("rejecting...");
+                setTimeout(reject, 2500, "foo");
+            }
+        });
+
+        Promise.all([p1, p2, p3])
+            .then(values => {
+                console.log(values);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+</body>
+</html>
