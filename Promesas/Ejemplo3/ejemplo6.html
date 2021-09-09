@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <script>
+        // Creación de una promesa: usando constructor con un parámetro para inicializar la promesa.
+        // Se debe pasar como parámetro del constructor una función con dos parámetros, que a su vez son callbacks: resolve, reject
+        /*const myPromise = new Promise(function(resolve, reject) {
+
+        });*/
+
+        /* Dentro de la función con la que se inicializa la promesa habrá una condición
+            Si se cumple la condición, la promesa se resolverá, de lo contrario será rechazada  */
+        const myPromise = new Promise((resolve, reject) => {
+
+            const date = new Date();
+            const seconds = date.getSeconds();
+            
+            setTimeout(() => {
+                console.log("Seconds: ", seconds);
+                if (seconds % 2 == 0) { // Condición
+                    resolve('La promesa ha sido resulta satisfactoriamente');
+                } else {
+                    reject('La promesa ha sido rechazada');
+                }
+            }, 3000);
+        });
+
+        console.log("Hola 1");
+
+        // then() para promesas resueltas
+        myPromise
+            /* Se llama al método then después de que se resuelve la Promesa. Entonces podemos decidir qué hacer con la Promesa resulta */
+            .then((mensajeSuccess) => { // A la función then se le pasa una función anónima con parámetro y el cuerpo a ejecutarse
+                console.log(mensajeSuccess);
+            })
+
+            // catch() para promesas rechazadas
+            /* Si la promesa falla y es rechazad, se usa el método catch.*/
+            .catch((mensajeError) => {
+                console.log(mensajeError);
+            });
+        
+        console.log("Hola 2");
+    </script>
+</body>
+</html>
