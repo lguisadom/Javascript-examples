@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback hell</title>
+</head>
+<body>
+    <script>
+        // Ejemplo de callback sincrónico: Porque se ejecuta inmediatamente
+        function saludar(nombre) {
+            alert("hola " + nombre);
+        }
+
+        function procesarEntradaUsuario(callback) {
+            let nombre = prompt('Por favor ingresa tu nombre.');
+            callback(nombre);
+        }
+
+        procesarEntradaUsuario(saludar);
+        /* Tenga en cuenta que las callbacks a menudo se utilizan para continuar con la ejecución del código después de que se haya
+        completado una operación asincrónica. */
+    </script>
+</body>
+</html>
