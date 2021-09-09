@@ -8,13 +8,25 @@
 </head>
 <body>
     <script>
+        /* Una función de callback o simplemente callback es una función que se pasa a otra función como argumento, y luego se invoca dentro de la 
+        función externa para completar algún tipo de rutina o acción. 
+        
+        Ejemplo:
+        > Se define la función llamada "callback"
+        > Se define una función cualquiera llamada mensaje
+        > Se invoca a la función "mensaje" y se le pasa como parámetro el nombre de la primera función definida, es decir, el nombre de la función
+            de callback.
+        > Dentro de la función "mensaje", se ejecuta su cuerpo y en algún punto se utiliza el parámetro fn en el cual se recibió la función callback
+            y se realiza su invocación.
+        Podemos ver que la función callback es aquella que se pasa como argumento a la función mensaje, y que luego se invoca dentro de su cuerpo.
+        */
         // callback
         function callback() {
             console.log("Soy un callback");
         }
 
         function mensaje(fn) {
-            fn();
+            fn(); // Ejecuta la función recibida como parámetro
         }
 
         mensaje(callback);
