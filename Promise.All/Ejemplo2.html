@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p1 = new Promise((resolve, reject) => {
+            let milliseconds = (new Date()).getMilliseconds();
+            console.log("milliseconds p1: ", milliseconds);
+            if (milliseconds % 2 == 0) {
+                setTimeout(resolve, 3000, "p1");
+                console.log("resolving...p1");
+            } else {
+                setTimeout(reject, 3000, "p1");
+                console.log("rejecting...p1");
+            }
+            console.log("finish p1");
+        });
+
+        let p2 = new Promise((resolve, reject) => {
+            let milliseconds = (new Date()).getMilliseconds();
+            console.log("milliseconds p2: ", milliseconds);
+            if (milliseconds % 2 == 0) {
+                setTimeout(resolve, 2500, "p2");
+                console.log("resolving...p2");
+            } else {
+                setTimeout(reject, 2500, "p2");
+                console.log("rejecting...p2");
+            }
+            console.log("finish p2");
+        });
+
+
+        let p3 = new Promise((resolve, reject) => {
+            let milliseconds = (new Date()).getMilliseconds();
+            console.log("milliseconds p3: ", milliseconds);
+            if (milliseconds % 2 == 0) {
+                setTimeout(resolve, 1000, "p3");
+                console.log("resolving...p3");
+            } else {
+                setTimeout(reject, 1000, "p3");
+                console.log("rejecting...p3");
+            }
+            console.log("finish...p3");
+        });
+
+        Promise.all([p1, p2, p3])
+            .then(values => {
+                console.log(values);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    </script>
+</body>
+</html>
