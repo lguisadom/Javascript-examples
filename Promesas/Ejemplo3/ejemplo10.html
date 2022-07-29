@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises in JavaScript</title>
+</head>
+<body>
+    <script>
+
+        function crearPromesa() {
+            console.log("Invocando crearPromesa");
+            return new Promise((resolve, reject) => {
+                console.log("Cuerpo de la promesa");
+                setTimeout(() => {
+                    const seconds = new Date().getSeconds();
+                    console.log("Seconds: ", seconds);
+                    if (seconds % 2 === 0) {
+                        resolve();
+                    } else {
+                        reject("error 123");
+                    }
+                }, 1000);
+            });
+        }
+
+        const promesa = crearPromesa();
+        promesa
+        .then(() => {
+            console.log("Ejecución del resolve");
+        });
+
+        /*
+        .then(() =>  {
+            console.log("Guardar en base de datos el tiempo");
+        })
+        .catch(err => {
+            console.log(err);
+        });*/
+    </script>
+</body>
+</html>
